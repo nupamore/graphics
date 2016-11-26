@@ -1,0 +1,645 @@
+#VRML V2.0 utf8
+
+DirectionalLight {color 0.3 0.3 0.3 direction 0 0 -500}
+			 
+# sea
+Transform {
+	translation	0 0 -6.5
+	scale 1 1 0.02
+	children [
+Shape {
+	geometry Sphere {radius 1000}
+	appearance Appearance {texture ImageTexture {url "sea.jpg"}
+		material Material {transparency 0.15}}
+}
+
+]}
+
+
+
+# ship_low
+
+Transform {
+	translation	0 0 25
+	children [
+Shape {
+	geometry Extrusion {
+		crossSection [10 10, 10 -10, -10 -10, -10 10, 10 10]
+		spine [0 0 0, 0 0 -1.5, 0 0 -3, 0 0 -4.5, 0 0 -6, 0 0 -7.5, 0 0 -9, 0 0 -10.5, 0 0 -12, 0 0 -13.5, 0 0 -15]
+		scale [1.0 1.0, 0.75 0.75, 0.55 0.55, 0.4 0.4, 0.3 0.3, 0.22 0.22, 0.15 0.15, 0.1 0.1, 0.06 0.06, 0.03 0.03, 0.02 0.02]
+	} 
+	appearance DEF metal Appearance {texture ImageTexture {url "metal.jpg"}}}]
+}
+Transform {
+	translation	0 10 25
+	children [
+Shape {
+	geometry Extrusion {
+		crossSection [10 100, 10 -10, -10 -10, -10 100, 10 100]
+		spine [0 0 0, 0 0 -1.5, 0 0 -3, 0 0 -4.5, 0 0 -6, 0 0 -7.5, 0 0 -9, 0 0 -10.5, 0 0 -12, 0 0 -13.5, 0 0 -15]
+		scale [1.0 1, 0.75 1, 0.55 1, 0.4 1, 0.3 1, 0.22 1, 0.15 1, 0.1 1, 0.06 1, 0.03 1, 0.02 1]
+	} 
+	appearance	USE metal }]
+}
+Transform {
+	translation	0 115 25
+	children [
+Shape {
+	geometry Extrusion {
+		crossSection [10 15, 10 -10, -10 -10, -10 15, 10 15]
+		spine [0 0 0, 0 0 -15]
+		scale [1.0 1.0, 0.7 0.7]
+	} 
+	appearance USE metal }]
+}
+Transform {
+	translation	0 120 17.25
+	rotation  1 0 0 1.57
+	children [
+Shape {
+	geometry Extrusion {
+		crossSection [1 7.3, 1 -7.3, -1 -7.3, -1 7.3, 1 7.3]
+		spine [0 0 0, 0 0 30, 0 0 50 0 0 120]
+		scale [6 1.0, 14 1.0, 14 1.0, 0.1 1.0]
+	} 
+	appearance	USE metal }]
+}
+
+
+ 
+
+
+
+# ship_up
+
+DEF box Transform {
+	translation	0 40 25.25
+	children [
+Shape {
+	geometry Box {
+		size 20 100 1
+	}
+	appearance	Appearance {texture ImageTexture {url "asphalt.jpg"}}}
+]
+}
+Transform {
+	translation	15 50 0
+	scale 1 0.7 1
+	rotation 0 0 1 0.1
+	children [USE box]
+}
+Transform {
+	translation	10 60 0
+	scale 1 0.7 1
+	rotation 0 0 1 -0.05
+	children [USE box]
+}
+Transform {
+	translation	-10 50 0
+	scale 1 0.7 1
+	rotation 0 0 1 -0.12
+	children [USE box]
+}
+Transform {
+	translation	0 85 0
+	scale 1.3 0.5 1
+	children [USE box]
+}
+Transform {
+	translation	0.5 31 0
+	scale 0.8 0.3 1
+	rotation 0 0 1 -0.8
+	children [USE box]
+}
+Transform {
+	translation	4 31 0
+	scale 0.8 0.3 1
+	rotation 0 0 1 0.8
+	children [USE box]
+}
+
+
+# line
+
+DEF runway Transform {
+	translation	-2 32 25.51
+	children [
+Shape {
+	geometry Box {
+		size 10 80 0.5
+	}
+	appearance	Appearance {
+		texture ImageTexture {url "runway.jpg"}
+		textureTransform TextureTransform {scale 1 5}
+	}}
+]
+}
+Transform {
+	translation	13 50 0
+	scale 1 1 1
+	rotation 0 0 1 0.1
+	children [USE runway ]
+}
+
+
+
+# 관제탑
+
+Transform {
+	translation	-13 80 34
+	rotation 0 0 1 -0.1
+	children [
+
+
+# 관제탑_건물
+
+DEF building Transform {
+	scale 1 0.7 1
+	children [
+
+Shape {
+	geometry DEF box2 Box {size 7 9 7}
+	appearance Appearance {material	Material {diffuseColor 1 1 1}}
+	
+}
+
+
+DEF extrusion2 Transform {	translation 0 0 3
+			scale 4 5 1
+	children [
+
+Shape {
+	geometry Extrusion { 
+		crossSection [1 1, 1 -1, -1 -1, -1 1, 1 1]
+		spine[0 0 0, 0 0 1]
+		scale[1.0 1.0, 1.1 1.1]}
+	appearance Appearance {material	Material {diffuseColor 1 1 1}}
+}
+]}
+
+Transform { translation	0 0 1.8	children [USE extrusion2 ]}
+Transform { translation	0 0 3.6	children [USE extrusion2 ]}
+Transform { translation	0 0 3 scale	0.99 0.99 1.2
+	children [
+	Shape {
+		geometry USE box2
+		appearance Appearance {material	Material {diffuseColor 0.3 0.4 1 transparency 0.5}}
+}]}
+Transform { translation	0 0 8 scale	1 1 0.1
+	children [
+	Shape {
+		geometry USE box2
+		appearance Appearance {material	Material {diffuseColor 1 1 1}}
+}]}
+
+
+]}
+Transform {
+	translation	0 4.75 0
+	scale 0.6 2.5 1
+	children [ USE building ]
+}
+Transform {
+	translation	0 4.7 -5
+	children [
+		Shape {
+			geometry Box { size	4.19 14.5 6}
+			appearance Appearance {material	Material {diffuseColor 0.7 0.7 0.7}}
+		}
+	]
+}
+
+
+
+# 관제탑_사다리
+
+DEF cylinder Transform { translation	4 -0.5 -2 rotation 1 0 0 1.57 children [
+	Shape {
+		geometry Cylinder {
+			radius 0.05 height 12
+		}
+		appearance Appearance { material Material {diffuseColor	1 1 1}}
+	}
+]}
+Transform { translation	0 1 0 children [USE cylinder ]}
+DEF	ladders Transform { children [
+Transform { translation	0 -0.2 3 rotation 1 0 0 1.57 scale 1 1 0.08 children [USE cylinder ]}
+Transform { translation	0 -0.2 2.5 rotation 1 0 0 1.57 scale 1 1 0.08 children [USE cylinder ]}
+Transform { translation	0 -0.2 2.0 rotation 1 0 0 1.57 scale 1 1 0.08 children [USE cylinder ]}
+Transform { translation	0 -0.2 1.5 rotation 1 0 0 1.57 scale 1 1 0.08 children [USE cylinder ]}
+Transform { translation	0 -0.2 1.0 rotation 1 0 0 1.57 scale 1 1 0.08 children [USE cylinder ]}
+Transform { translation	0 -0.2 0.5 rotation 1 0 0 1.57 scale 1 1 0.08 children [USE cylinder ]}
+Transform { translation	0 -0.2 0 rotation 1 0 0 1.57 scale 1 1 0.08 children [USE cylinder ]}
+]}
+Transform { translation	0 0 -3.5 children [USE ladders ]}
+Transform { translation	0 0 -7 children [USE ladders ]}
+
+
+# 레이더1
+
+Transform {
+	translation	0 0 8.5
+	children [
+		Shape {
+			geometry Box { size	3 3 1}
+			appearance Appearance {material	Material {diffuseColor 0.7 0.7 0.7}}
+		}
+	]
+}
+Transform {
+	translation	0 0 11.1
+	rotation 1 0 0 1.1
+	children [
+		Shape {
+			geometry Box { size	5 3 0.2}
+			appearance Appearance {material	Material {diffuseColor 0.7 0.7 0.7}}
+		}
+	]
+}
+Transform { translation	-12 1.5 10 scale 3 3 0.25 children [USE cylinder ]}
+
+
+# 레이더2
+
+Transform {
+	translation	0 8 11
+	children [
+		Shape {
+			geometry Box { size	3 3 5}
+			appearance Appearance {material	Material {diffuseColor 0.7 0.7 0.7}}
+		}
+	]
+}
+Transform { translation	-16 10 20 scale 4 4 1 children [USE cylinder ]}
+DEF lader_box Transform {
+	translation	0 8 17
+	children [
+		Shape {
+			geometry Box { size	7 1 0.2}
+			appearance Appearance {material	Material {diffuseColor 0.7 0.7 0.7}}
+		}
+	]
+}
+Transform { translation	0 0 2 scale 1.5 1 1 children [USE lader_box ]}
+Transform { translation	0 0 4 scale 0.8 1 1 children [USE lader_box ]}
+Transform {
+	translation	0 8 24
+	children [
+		Shape {
+			geometry Sphere { radius 0.5 }
+			appearance Appearance {material	Material {diffuseColor 0.7 0.7 0.7}}
+		}
+	]
+}
+
+
+
+
+
+]}
+
+  
+
+# plane
+
+DEF	plane Transform	{
+	translation	4 0 27
+	rotation 0 0 1 1
+	scale 0.35 0.35 0.35
+	children [
+# ------------------------------ Body --------------------------------
+
+DEF Cylinder Shape {
+	geometry Cylinder {
+		radius 1 height	8
+	}
+	appearance DEF white Appearance {texture ImageTexture {url "metal.jpg"}}
+}
+DEF Cone Transform { translation	0 5.5 0
+	children [
+Shape {
+	geometry Cone {
+		bottomRadius 1 height 3
+	}
+	appearance DEF grey Appearance {material Material {diffuseColor	0.3 0.3 0.3 shininess 1 specularColor 1 1 1}
+	}
+}
+	]
+}
+Transform { translation	0 -9.5 0
+			rotation 1 0 0 3.14
+	children [
+Shape {
+	geometry Cone {
+		bottomRadius 1 height 11
+	}
+	appearance USE white
+}
+	]
+}
+
+Transform { translation	0 0.7 0.5				# Seat
+			scale 0.19 0.7 0.2
+	children [
+Shape {
+	geometry Sphere {
+		radius 5
+	}
+	appearance Appearance {
+		material Material {
+			diffuseColor 0.4 0.6 0.9 shininess 1 specularColor 1 1 1 transparency 0.1
+		}
+	}
+}
+	]
+}
+
+
+
+# ------------------------------ Engine --------------------------------
+
+DEF Engine_extrusion Transform {  translation	1.11 -8.2 -0.82
+								  rotation 0 1 1 -0.1
+	children [
+Shape {
+	geometry Extrusion {
+		solid FALSE
+		crossSection [1 1,1 -0.3,-0.5 -0.3,-0.5 1,1 1]
+		spine [0 2 0, 0 3 0, 0 -2 0]
+		scale [0.5 0.5, 1 1, 1 1]
+	}
+	appearance USE white
+}
+	]
+}
+DEF Engine_cylinder Transform { translation	1.2 -12 -0.4
+	children [
+Shape {
+	geometry Cylinder {
+		radius 1.1 height 6
+	}
+	appearance USE white
+}
+	]
+}
+DEF Engine_tale Transform { translation	1.2 -15 -0.4
+	children [
+Shape {
+	geometry Cylinder {
+		radius 1 height 2
+	}
+	appearance DEF black Appearance {
+		material Material {
+			diffuseColor 0.1 0.1 0.1
+		}
+	}
+}
+	]
+}
+Transform { translation	0 0 -1
+			rotation 0 1 0 3.24
+			children USE Engine_extrusion }
+Transform { translation	-2.4 0 0
+			children USE Engine_cylinder }
+Transform { translation	-2.4 0 0
+			children USE Engine_tale }
+
+Transform { translation	0 -11.5 0.1
+	children [
+Shape {
+	geometry Box {
+		size 2 7 0.2
+	}
+	appearance USE white
+}
+	]
+}
+
+
+
+
+# ------------------------------ Wing (main) --------------------------------
+
+Transform { translation	0 -1.5 0.3
+			scale 1 1 0.02
+	children [
+Shape {
+	geometry Cone {
+		bottomRadius 3 height 8
+	}
+	appearance USE white	
+}
+	]
+}
+DEF Wing_front Transform {  translation	-6 -7 0.3
+							scale 1 1 0.03
+							rotation 0 0 1 1.571
+	children [
+Shape {
+	geometry Cone {
+		bottomRadius 3 height 12
+	}
+	appearance Appearance {
+		material Material {
+			diffuseColor 0.6 0.6 0.6 specularColor 0.8 0.8 0.8		}
+	}
+}
+	]
+}
+DEF Wing_back Transform {   translation	-6 -8.5 0.3
+							scale 1 1 0.015
+	children [
+Shape {
+	geometry Box {
+		size 12 3 3
+	}
+	appearance USE white
+}
+	]
+}
+Transform { translation	0 -14 0
+			rotation 0 0 1 -3.14
+			children USE Wing_front	}
+Transform { translation	12 0 0
+			children USE Wing_back	}
+
+
+
+# ------------------------------ Wing (tale) --------------------------------
+
+Transform { translation -1.3 -5.7 0 
+			rotation 0 1 0 1
+			scale 0.5 0.8 1
+			children USE Wing_front	}
+Transform { translation	-1.3 -5.7 0
+			rotation 0 1 0 1
+			scale 0.5 0.8 1
+			children USE Wing_back	}
+Transform { translation 0.7 -5.7 0 
+			rotation 0 1 0 2.14
+			scale 0.5 0.8 1
+			children USE Wing_front	}
+Transform { translation	0.7 -5.7 0
+			rotation 0 1 0 2.14
+			scale 0.5 0.8 1
+			children USE Wing_back	}
+
+Transform { translation	-3.3 -8.8 0
+			rotation 0 0 1 0.4
+			scale 0.5 0.7 1
+			children USE Wing_front	}
+Transform { translation	-3.3 -8.8 0
+			rotation 0 0 1 0.4
+			scale 0.5 0.7 1
+			children USE Wing_back	}
+Transform { translation	-0.7 -17.6 0
+			rotation 0 0 1 -3.58
+			scale 0.5 0.7 1
+			children USE Wing_front	}
+Transform { translation	-1.6 -19.5 0
+			rotation 0 0 1 -3.58
+			scale 0.5 0.7 1
+			children USE Wing_back	}
+
+
+# ------------------------------ Weapon --------------------------------
+			
+
+Transform { translation	-5 -8.5 -0.2
+	children [
+DEF Weapon_Box Shape {
+	geometry Box {
+		size 0.1 3 1
+	}
+	appearance USE white
+}
+	]
+}		
+Transform { translation	-5 -8.5 -0.8		# Missile
+			scale 0.15 0.4 0.15
+			children USE Cylinder	}
+Transform { translation	-5 -7.7 -0.8
+			scale 0.15 0.2 0.15
+			children USE Cone	}
+
+Transform { translation	5 -8.5 -0.2
+			children USE Weapon_Box	}
+
+Transform { translation	5 -8.5 -0.8
+			scale 0.15 0.4 0.15
+			children USE Cylinder	}
+Transform { translation	5 -7.7 -0.8
+			scale 0.15 0.2 0.15
+			children USE Cone	}
+
+Transform { translation	-8 -8.5 -0.2
+			children USE Weapon_Box	}
+Transform { translation	-8 -8.5 -0.8
+			scale 0.15 0.4 0.15
+			children USE Cylinder	}
+Transform { translation	-8 -7.7 -0.8
+			scale 0.15 0.2 0.15
+			children USE Cone	}
+Transform { translation	8 -8.5 -0.2
+			children USE Weapon_Box	}
+Transform { translation	8 -8.5 -0.8
+			scale 0.15 0.4 0.15
+			children USE Cylinder	}
+Transform { translation	8 -7.7 -0.8
+			scale 0.15 0.2 0.15
+			children USE Cone	}		
+Transform { translation	-12 -8.5 0.3
+			scale 0.15 0.4 0.15
+			children USE Cylinder	}
+Transform { translation	-12 -7.7 0.3
+			scale 0.15 0.2 0.15
+			children USE Cone	}
+Transform { translation	12 -8.5 0.3
+			scale 0.15 0.4 0.15
+			children USE Cylinder	}
+Transform { translation	12 -7.7 0.3
+			scale 0.15 0.2 0.15
+			children USE Cone	}
+	
+Transform { translation	0 -6 -1.2
+			children USE Weapon_Box	}
+	
+Transform { translation	0 -6 -2				# Bomb
+			scale 0.2 1 0.2
+	children [
+Shape {
+	geometry Sphere {
+		radius 5
+	}
+	appearance Appearance {
+		material Material {
+			diffuseColor 0.5 0.5 0.5
+		}
+	}
+}
+	]
+}		
+
+
+
+]}
+
+# -------- plane end
+
+DEF	planes Transform {
+	children [
+
+Transform	{
+	translation	0 8 0
+	children [USE plane]
+}
+Transform	{
+	translation	0 16 0
+	children [USE plane]
+}
+Transform	{
+	translation	0 24 0
+	children [USE plane]
+}
+Transform	{
+	translation	0 32 0
+	children [USE plane]
+}
+
+
+]}
+
+
+Transform {
+	translation	15 40 0
+	rotation 0 0 1 0.1
+	children [USE planes ]
+}
+Transform {
+	translation	12 70 0
+	rotation 0 0 1 0.1
+	children [USE planes ]
+}
+Transform {
+	translation	-5 75 0
+	rotation 0 0 1 3.04
+	children [USE planes ]
+}
+Transform {
+	translation	-9 -3 0
+	children [USE planes ]
+}
+Transform {
+	translation	-9 30 0
+	children [USE planes ]
+}
+Transform {
+	translation	0 130 0
+	rotation 0 0 1 3.04
+	children [USE planes ]
+}
+
+
+
+
+
