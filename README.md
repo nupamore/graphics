@@ -11,13 +11,13 @@ my graphics works
 - **3D Scanner** _ *2015/09/23*  
 `three.js`  
 <br>
-[![thumb](thumbnails/3d-scanner.png)](webgl/3d-scanner.html)  
+[![thumb](thumbnails/3d-scanner.png)](https://nupamore.github.io/graphics/webgl/3d-scanner.html)  
 <br>
 
 - **Particle engine** _ *2014/03/08*  
 `javascript`  
 <br>
-[![thumb](thumbnails/particle.png)](canvas/particle.html)  
+[![thumb](thumbnails/particle.png)](https://nupamore.github.io/graphics/canvas/particle.html)  
 <br>
 
 - **Aircraft Carrier** _ *2012/04/29*  
