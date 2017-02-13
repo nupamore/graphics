@@ -1,7 +1,8 @@
 # graphics
-my graphics works
+my graphics works  
+<br>
 
-- **[Audio Visualization] The words of god** _ *2016/11/04*  
+- **[Audio Visualization] The words of god** _ *2016/11/04*  
 `processing`  
 <br>
 [![thumb](thumbnails/words-of-god.png)](https://www.youtube.com/watch?v=Od6IiPApO7k)  
