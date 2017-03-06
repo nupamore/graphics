@@ -2,6 +2,12 @@
 my graphics works  
 <br>
 
+- **Maidragon fractal** _ *2017/03/05*  
+`canvas`  
+<br>
+[![thumb](https://github.com/nupamore/maidragon-fractal/raw/gh-pages/img/thumb.jpg)](https://nupamore.github.io/maidragon-fractal)  
+<br>
+
 - **[Audio Visualization] The words of god** _ *2016/11/04*  
 `processing`  
 <br>
@@ -15,7 +21,7 @@ my graphics works
 <br>
 
 - **Particle engine** _ *2014/03/08*  
-`javascript`  
+`canvas`  
 <br>
 [![thumb](thumbnails/particle.png)](https://nupamore.github.io/graphics/canvas/particle.html)  
 <br>
