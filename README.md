@@ -1,5 +1,5 @@
 # graphics
-my graphics works  
+My graphics works (Image is hyperlink)  
 <br>
 
 - **Maidragon fractal** _ *2017/03/05*  
